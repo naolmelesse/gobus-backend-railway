@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tickets",
+  "info": {
+    "singularName": "ticket",
+    "pluralName": "tickets",
+    "displayName": "ticket",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "traveler_name": {
+      "type": "string",
+      "required": true
+    },
+    "traveler_email": {
+      "type": "email",
+      "required": true
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "ticket_id": {
+      "type": "string",
+      "required": true
+    },
+    "departure": {
+      "type": "string",
+      "required": true
+    },
+    "destination": {
+      "type": "string",
+      "required": true
+    },
+    "seat_number": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "ticket_id",
+      "required": true
+    }
+  }
+}

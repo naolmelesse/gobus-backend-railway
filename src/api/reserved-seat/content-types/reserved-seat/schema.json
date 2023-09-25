@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reserved_seats",
+  "info": {
+    "singularName": "reserved-seat",
+    "pluralName": "reserved-seats",
+    "displayName": "reservedSeat"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reserved_seats": {
+      "type": "json"
+    }
+  }
+}

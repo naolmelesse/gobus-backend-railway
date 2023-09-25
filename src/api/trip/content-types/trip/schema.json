@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trips",
+  "info": {
+    "singularName": "trip",
+    "pluralName": "trips",
+    "displayName": "Trip",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bus": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bus-operator.bus-operator",
+      "inversedBy": "trips"
+    },
+    "departure": {
+      "type": "time",
+      "required": true,
+      "default": "04:00"
+    },
+    "arrival": {
+      "type": "time",
+      "required": true,
+      "default": "19:30"
+    },
+    "from_cities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::city.city",
+      "inversedBy": "trip_froms"
+    },
+    "to_cities": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::city.city",
+      "inversedBy": "trip_tos"
+    },
+    "fare": {
+      "type": "integer",
+      "required": true,
+      "min": 200
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "departure_time": {
+      "type": "enumeration",
+      "enum": [
+        "before_6am",
+        "morning6am_to_12pm",
+        "noon12pm_to_6pm",
+        "after_6pm"
+      ],
+      "required": true,
+      "default": "morning6am_to_12pm"
+    },
+    "arrival_time": {
+      "type": "enumeration",
+      "enum": [
+        "before_6am",
+        "morning6am_to_12pm",
+        "noon12pm_to_6pm",
+        "after_6pm"
+      ],
+      "required": true,
+      "default": "after_6pm"
+    },
+    "bus_type": {
+      "type": "enumeration",
+      "enum": [
+        "Sleeper AC",
+        "Sleeper Non-AC",
+        "Seater AC",
+        "Seater Non-AC"
+      ]
+    },
+    "available_seats": {
+      "type": "integer",
+      "required": true,
+      "max": 40
+    },
+    "amenities": {
+      "type": "enumeration",
+      "enum": [
+        "Live Tracking, Wifi, Water",
+        "Wifi, Blanket, Charging Port",
+        "Live Tracking, Charging Port, Snacks"
+      ],
+      "required": true,
+      "default": "Live Tracking, Wifi, Water"
+    },
+    "reserved_seats": {
+      "type": "json",
+      "required": false
+    }
+  }
+}
